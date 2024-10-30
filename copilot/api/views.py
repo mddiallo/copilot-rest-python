@@ -19,3 +19,23 @@ def hello_world_view(request):
     
     # If 'hello' is present, return a JSON response with the message "hello world"
     return JsonResponse({'message': 'hello world'})
+
+@api_view(['GET'])
+def get_azure_vms(request):
+    """
+    Returns a list of Azure VMs from a local JSON file.
+    """
+    try:
+        with open('path/to/your/vms.json', 'r') as file:
+            vms = json.load(file)
+        return JsonResponse(vms, status=status.HTTP_200_OK)
+    except FileNotFoundError:
+        return JsonResponse(
+            {"error": "VMs JSON file not found"},
+            status=status.HTTP_404_NOT_FOUND
+        )
+    except json.JSONDecodeError:
+        return JsonResponse(
+            {"error": "Error decoding JSON file"},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
