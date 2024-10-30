@@ -4,6 +4,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 import datetime
+import json
 
 @api_view(['GET'])
 def get_current_time(request):
@@ -26,9 +27,9 @@ def get_azure_vms(request):
     Returns a list of Azure VMs from a local JSON file.
     """
     try:
-        with open('path/to/your/vms.json', 'r') as file:
+        with open('./data/vms.json', 'r') as file:
             vms = json.load(file)
-        return JsonResponse(vms, status=status.HTTP_200_OK)
+        return JsonResponse(vms, status=status.HTTP_200_OK, safe= False)
     except FileNotFoundError:
         return JsonResponse(
             {"error": "VMs JSON file not found"},

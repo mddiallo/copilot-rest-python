@@ -1,0 +1,37 @@
+[
+    {
+        "size": "Standard_D32_v3",
+        "vcpu": 32,
+        "memory": 128
+    },
+    {
+        "size": "Standard_D64_v3",
+        "vcpu": 64,
+        "memory": 256
+    },
+    {
+        "size": "Standard_D96_v3",
+        "vcpu": 96,
+        "memory": 384
+    },
+    {
+        "size": "Standard_D128_v3",
+        "vcpu": 128,
+        "memory": 512
+    },
+    {
+        "size": "Standard_D160_v3",
+        "vcpu": 160,
+        "memory": 640
+    },
+    {
+        "size": "Standard_D192_v3",
+        "vcpu": 192,
+        "memory": 768
+    },
+    {
+        "size": "Standard_D224_v3",
+        "vcpu": 224,
+        "memory": 896
+    }
+]
